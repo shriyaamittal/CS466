@@ -41,6 +41,37 @@ def align(seq1,seq2):
        	align1,align2 ='',''
        	i=m
        	j=n
+       	while (i>0 and j>0):
+       		score_current=score[i][j]
+       		score_diagonal=score[i-1][j-1]
+       		score_vertical=score[i-1][j]
+       		score_horizontal=score[i][j-1]
+       		if (score_current == score_diagonal + int(func_score(seq1[i-1],seq2[j-1]))):
+       			align1= align1+seq1[i-1]
+       			align2= align2+seq2[j-1]
+       			i=i-1
+       			j=j-1
+       		elif (score_current == score_horizontal + gap_penalty):
+       			align1= align1+'-'
+       			align2= align2+seq2[j-1]
+       			j=j-1
+       		elif (score_current == score_vertical + gap_penalty):
+       			align1= align1+seq1[i-1]
+       			align2= align2+'-'
+       			i=i-1
+       	print align1[::-1]
+       	print align2[::-1]
+       	while (i>0):
+       		align1=align1+seq1[i-1]
+       		align2= align2+'-'
+       		i=i-1
+       	while (j>0):
+       		align1= align1+'-'
+       		align2=align2+seq1[j-1]
+       		j=j-1
+
+
+
 
 
 if __name__ == "__main__":
