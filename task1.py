@@ -59,8 +59,6 @@ def align(seq1,seq2):
        			align1= align1+seq1[i-1]
        			align2= align2+'-'
        			i=i-1
-       	print align1[::-1]
-       	print align2[::-1]
        	while (i>0):
        		align1=align1+seq1[i-1]
        		align2= align2+'-'
@@ -69,10 +67,8 @@ def align(seq1,seq2):
        		align1= align1+'-'
        		align2=align2+seq1[j-1]
        		j=j-1
-
-
-
-
+       	print align1[::-1]
+       	print align2[::-1]
 
 if __name__ == "__main__":
        	## Command line inputs
